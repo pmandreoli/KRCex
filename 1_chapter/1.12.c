@@ -1,24 +1,23 @@
 #include <stdio.h>
 
-int c, prev;
+int main(){
+    int c;
+    printf("Insert text, press enter when finish\n");
+    while ( (c=getchar()) != EOF ){
 
-int main() {
-
-    prev = 0;
-
-    while ((c = getchar()) != EOF) {
-        
-        if (c == ' ' || c == '\n' || c == '\t' && prev == 0)
-            if (prev == 0) {
-                putchar('\n');
-                prev = 1;
+        if (c == ' ' || c == '\n' || c == '\t'){
+            putchar('\n');
+            while ( (c=getchar()) != EOF ){
+                if ( c == ' ' || c == '\n' || c == '\t'){
+                    continue;
+                }
+                putchar(c);
+                break;
             }
-            else
-             ;
-        else {
+        }
+        else{
             putchar(c);
-            prev = 0;
-        }    
+        }
     }
+    return 0;
 }
-
